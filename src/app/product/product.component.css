@@ -5,3 +5,8 @@
 .notonsale{
   background-color:red;
 }
+
+img {
+  height:100px;
+  Width:auto;
+}
