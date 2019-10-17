@@ -6,7 +6,19 @@
   background-color:red;
 }
 
+div{
+  float:left;
+  display:flex;
+  align-self: center;
+  justify-content: center;
+  width:300px;
+}
+
+.newline{
+  clear:both;
+}
+
 img {
-  height:100px;
-  Width:auto;
+  height:auto;
+  width:100px;
 }

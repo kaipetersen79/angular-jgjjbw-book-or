@@ -6,7 +6,8 @@ export class Product {
   public onSale: boolean;
   private quantity:number;
 
-  constructor(public name:string,
+  constructor(public id, 
+              public name:string,
               public price:number,
               public image:string) {
       this.onSale=false;

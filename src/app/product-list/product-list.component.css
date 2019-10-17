@@ -1,0 +1,8 @@
+
+div{
+  float:left;
+  display:flex;
+  align-self: center;
+  justify-content: center;
+  width:300px;
+}

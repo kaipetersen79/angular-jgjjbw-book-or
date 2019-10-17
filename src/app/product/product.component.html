@@ -1,39 +1,11 @@
-<div>
-  <table>
-    <tr>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Image</th>
-        <th>Quantity</th>
-        <th> </th>
-    </tr>
-sdfas
-    <tr [class]="products[0].onSale ? 'onsale' : 'notonsale'">
-        <td>{{products[0].name}}</td>
-        <td>{{products[0].price}}</td>
-        <td><img [src]="products[0].image"></td>
-        <td>{{products[0].quantity}}</td>
-                <td><button type="button" (click)="products[0].addProduct()">+</button>
-                    <button type="button" [disabled]="products[0].quantity===0"  (click)="products[0].removeProduct()">-</button></td>
-    </tr>
 
-    <tr [class]="products[1].onSale ? 'onsale' : 'notonsale'">
-        <td>{{products[1].name}}</td>
-        <td>{{products[1].price}}</td>
-        <td><img [src]="products[1].image"></td>
-        <td>{{products[1].quantity}}</td>  
-                 <td><button type="button" (click)="products[1].addProduct()">+</button>
-                    <button type="button" [disabled]="products[1].quantity===0"  (click)="products[1].removeProduct()">-</button></td>      
-    </tr>
-
-    <tr [class]="products[2].onSale ? 'onsale' : 'notonsale'">
-        <td>{{products[2].name}}</td>
-        <td>{{products[2].price}}</td>
-        <td><img [src]="products[2].image"></td>
-        <td>{{products[2].quantity}}</td>     
-                     <td><button type="button" (click)="products[2].addProduct()">+</button>
-                        <button type="button" [disabled]="products[2].quantity===0"    (click)="products[2].removeProduct()">-</button></td>        
-    </tr>    
-
-  </table>
+<div [class.onsale]="product.onSale"
+     [class.notonsale]="!product.onSale">
+  <div>{{product.name}}</div>
+  <div>{{product.price}}</div>
+  <div><img [src]="product.image"></div>
+  <div>{{product.quantity}}</div>
+  <ng-content></ng-content>
 </div>
+<div class="newline"></div>
+
