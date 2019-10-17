@@ -1,11 +1,11 @@
 
 
 <app-product *ngFor="let product of products, let i = index" 
-    [product]="products[i]">
+    [product]="product">
     <div>
         <select>
           <option *ngFor="let option of quantityOptions; index as i" value="i">{{quantityOptions[i]}} </option>
         </select>
-         <button type="button" (click)="">+</button>              
+         <button type="button" >+</button>              
     </div>
 </app-product>
