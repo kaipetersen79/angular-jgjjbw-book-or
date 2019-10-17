@@ -5,7 +5,12 @@
   <div>{{product.price}}</div>
   <div><img [src]="product.image"></div>
   <div>{{product.quantity}}</div>
-  <ng-content></ng-content>
+      <div>
+        <select>
+          <option *ngFor="let option of quantityOptions; index as i" value="i">{{quantityOptions[i]}} </option>
+        </select>
+         <button type="button" >+</button>              
+    </div>
 </div>
 <div class="newline"></div>
 
