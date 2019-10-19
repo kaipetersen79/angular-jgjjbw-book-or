@@ -1,18 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from '../model/product';
 import { IProductQuantityTuple } from '../model/iproduct-quantity-tuple';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ProductComponent implements OnInit {
-  public quantityOptions:Array<number> = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
-  
+  public quantityOptions:Array<number> = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]; 
 
-  
   @Input () public product:Product;
   @Output () private quantityChange: EventEmitter<IProductQuantityTuple>;
   

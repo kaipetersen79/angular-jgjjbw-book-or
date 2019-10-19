@@ -1,5 +1,6 @@
 
 
 <app-product *ngFor="let product of products, let i = index" 
-    [product]="product">
+    [product]="product"
+    (quantityChange) = "reactToQuantityChange($event)">
 </app-product>

@@ -9,7 +9,8 @@
         <select>
           <option *ngFor="let option of quantityOptions; index as i" value="i">{{quantityOptions[i]}} </option>
         </select>
-         <button type="button" >+</button>              
+         <button type="button" (click)="increaseQuantity()" >+</button>     
+         <button type="button" (click)="decreaseQuantity()" [disabled]="!product.quantity>0">-</button>         
     </div>
 </div>
 <div class="newline"></div>
