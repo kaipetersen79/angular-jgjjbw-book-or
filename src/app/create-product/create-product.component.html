@@ -1,4 +1,6 @@
 
+
+
 <div style="clear:both; padding:10pt">
   <h1>Form using two-way data binding</h1>
   <div class="form-group">
@@ -63,21 +65,19 @@
 </div>
 
 
-
-
 <div style="clear:both; padding:10pt">
   <h1>Solution with Form Groups</h1>
   <div class="form-group">
-    <form (ngSubmit)="createStock()" #productForm="ngForm">
+    <form (ngSubmit)="createStockFormGroup(productFormGroup)" #productFormGroup="ngForm">
       <div ngModelGroup="product">
             <span style="display:inline-block; width:200px;">ID:</span> 
             <input type="number"
                   placeholder = "Product ID"
                   name="id"
-                  #productId="ngModel"
+                  #productGroupId="ngModel"
                   pattern="[1-9]*"
                   ngModel>  
-            <div *ngIf="productId.errors">
+            <div *ngIf="productGroupId.errors">
               Number must be larger than 1
             </div>
 
@@ -88,7 +88,7 @@
                   type="text"
                   minlength="3"
                   required
-                  #productName="ngModel"
+                  #productGroupName="ngModel"
                   ngModel>  
 
             <span style="display:inline-block; width:200px;">Product price:</span> 
@@ -96,7 +96,7 @@
                   placeholder = "Product price"
                   name="price"
                   required
-                  #productPrice="ngModel"
+                  #productGroupPrice="ngModel"
                   ngModel>  
 
             <span style="display:inline-block; width:200px;">Product on sale:</span> 
@@ -111,13 +111,13 @@
                   name="image" 
                   pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"         
                   required
-                  #productUrl="ngModel"
+                  #productGroupUrl="ngModel"
                   ngModel>        
             <br>
-            <div *ngIf="productUrl.errors && productUrl.errors.required">
+            <div *ngIf="productGroupUrl.errors && productGroupUrl.errors.required">
               Field should not be empty
             </div>
-            <div *ngIf="productUrl.errors && productUrl.errors.pattern">
+            <div *ngIf="productGroupUrl.errors && productGroupUrl.errors.pattern">
               The field does not represent a URL
             </div>
       </div>

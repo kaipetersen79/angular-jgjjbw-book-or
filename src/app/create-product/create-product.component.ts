@@ -17,6 +17,16 @@ export class CreateProductComponent implements OnInit {
     console.log('Create product ', this.product)
   }
 
+  createStockFormGroup(productFormGroup) {
+    if(productFormGroup.valid) {
+      this.product = productFormGroup.value.product;
+      console.log('Created product from form group', this.product);
+    }
+    else {
+      console.error("The form was not valid");
+    }
+  }
+
   ngOnInit() {
   }
 
