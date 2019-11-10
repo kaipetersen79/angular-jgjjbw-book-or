@@ -13,6 +13,10 @@ export class CreateProductComponent implements OnInit {
     this.product = new Product(0,"Ferrari", 15, "https://drop.ndtv.com/albums/AUTO/Maruti_Suzuki_S_637057817188112458/637057817210146726.jpeg")
   }
 
+  createStock() {
+    console.log('Create product ', this.product)
+  }
+
   ngOnInit() {
   }
 

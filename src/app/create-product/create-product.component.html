@@ -2,39 +2,131 @@
 <div style="clear:both; padding:10pt">
   <h1>Form using two-way data binding</h1>
   <div class="form-group">
-    <form>
+    <form (ngSubmit)="createStock()" #productForm="ngForm">
       <span style="display:inline-block; width:200px;">ID:</span> 
-      <input type="text"
+      <input type="number"
              placeholder = "Product ID"
              name="productID"
-             required
+             #productId="ngModel"
+             pattern="[1-9]*"
              [(ngModel)]="product.id">  
+      <div *ngIf="productId.errors">
+        Number must be larger than 1
+      </div>
 
       <span style="display:inline-block; width:200px;">Product name:</span> 
       <input type="text"
              placeholder = "Product name"
              name="productName"
+             type="text"
+             minlength="3"
              required
+             #productName="ngModel"
              [(ngModel)]="product.name">  
 
        <span style="display:inline-block; width:200px;">Product price:</span> 
-       <input type="text"
+       <input type="number"
              placeholder = "Product price"
              name="productPrice"
              required
+             #productPrice="ngModel"
              [(ngModel)]="product.price">  
+
       <span style="display:inline-block; width:200px;">Product on sale:</span> 
       <input type="checkbox"
              name="onsaleProduct"
-             required
              [(ngModel)]="product.onSale"> 
-             <br>
+
+      <br>
       <span style="display:inline-block; width:200px;">Product URL:</span> 
-      <input type="text"
+      <input type="url"
              placeholder = "Product URL"
-             name="productUrl"
+             name="productUrl" 
+             pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"         
              required
-             [(ngModel)]="product.image">           
+             #productUrl="ngModel"
+             [(ngModel)]="product.image">        
+      <br>
+      <div *ngIf="productUrl.errors && productUrl.errors.required">
+        Field should not be empty
+      </div>
+      <div *ngIf="productUrl.errors && productUrl.errors.pattern">
+        The field does not represent a URL
+      </div>
+      <button type="submit">Create</button>
     </form>  
   <div>
+  <!-- 
+    <h2>The following stock was created: {{product | json}}</h2>
+  -->
+
+</div>
+
+
+
+
+<div style="clear:both; padding:10pt">
+  <h1>Solution with Form Groups</h1>
+  <div class="form-group">
+    <form (ngSubmit)="createStock()" #productForm="ngForm">
+      <div ngModelGroup="product">
+            <span style="display:inline-block; width:200px;">ID:</span> 
+            <input type="number"
+                  placeholder = "Product ID"
+                  name="id"
+                  #productId="ngModel"
+                  pattern="[1-9]*"
+                  ngModel>  
+            <div *ngIf="productId.errors">
+              Number must be larger than 1
+            </div>
+
+            <span style="display:inline-block; width:200px;">Product name:</span> 
+            <input type="text"
+                  placeholder = "Product name"
+                  name="name"
+                  type="text"
+                  minlength="3"
+                  required
+                  #productName="ngModel"
+                  ngModel>  
+
+            <span style="display:inline-block; width:200px;">Product price:</span> 
+            <input type="number"
+                  placeholder = "Product price"
+                  name="price"
+                  required
+                  #productPrice="ngModel"
+                  ngModel>  
+
+            <span style="display:inline-block; width:200px;">Product on sale:</span> 
+            <input type="checkbox"
+                  name="onSale"
+                  ngModel> 
+
+            <br>
+            <span style="display:inline-block; width:200px;">Product URL:</span> 
+            <input type="url"
+                  placeholder = "Product URL"
+                  name="image" 
+                  pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"         
+                  required
+                  #productUrl="ngModel"
+                  ngModel>        
+            <br>
+            <div *ngIf="productUrl.errors && productUrl.errors.required">
+              Field should not be empty
+            </div>
+            <div *ngIf="productUrl.errors && productUrl.errors.pattern">
+              The field does not represent a URL
+            </div>
+      </div>
+
+      <button type="submit">Create</button>
+    </form>  
+  <div>
+  <!-- 
+    <h2>The following stock was created: {{product | json}}</h2>
+  -->
+
 </div>
