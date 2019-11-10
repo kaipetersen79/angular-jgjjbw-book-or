@@ -1,5 +1,13 @@
 
-
+<!--
+Here, we pass the product to the product component app-product. This is the input
+and the attribute [product] has to match the name of the variable in the
+product class. 
+We also put a listener to react to the change in quantity in the app-component.
+The listener has to have the same name as the output variable. When something changes, we get an event $event and can write a function that determines 
+how we react to that event.
+How the event looks like we can determine through our eventEmitter.
+  -->
 <app-product *ngFor="let product of products, let i = index" 
     [product]="product"
     (quantityChange) = "reactToQuantityChange($event)">

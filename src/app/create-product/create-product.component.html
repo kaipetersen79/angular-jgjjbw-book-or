@@ -1,0 +1,40 @@
+
+<div style="clear:both; padding:10pt">
+  <h1>Form using two-way data binding</h1>
+  <div class="form-group">
+    <form>
+      <span style="display:inline-block; width:200px;">ID:</span> 
+      <input type="text"
+             placeholder = "Product ID"
+             name="productID"
+             required
+             [(ngModel)]="product.id">  
+
+      <span style="display:inline-block; width:200px;">Product name:</span> 
+      <input type="text"
+             placeholder = "Product name"
+             name="productName"
+             required
+             [(ngModel)]="product.name">  
+
+       <span style="display:inline-block; width:200px;">Product price:</span> 
+       <input type="text"
+             placeholder = "Product price"
+             name="productPrice"
+             required
+             [(ngModel)]="product.price">  
+      <span style="display:inline-block; width:200px;">Product on sale:</span> 
+      <input type="checkbox"
+             name="onsaleProduct"
+             required
+             [(ngModel)]="product.onSale"> 
+             <br>
+      <span style="display:inline-block; width:200px;">Product URL:</span> 
+      <input type="text"
+             placeholder = "Product URL"
+             name="productUrl"
+             required
+             [(ngModel)]="product.image">           
+    </form>  
+  <div>
+</div>
